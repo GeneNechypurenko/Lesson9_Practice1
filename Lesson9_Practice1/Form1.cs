@@ -13,19 +13,13 @@ namespace Lesson9_Practice1
             this.Size = new(500, 500);
         }
 
-        private void Form1_Click(object? sender, EventArgs e)
-        {
-
-
-
-        }
-
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
             Random rnd = new();
-            int x = e.X;
-            int y = e.Y;
             int size = rnd.Next(0, 100);
+            int x = e.X - size / 2;
+            int y = e.Y - size / 2;
+
             int red = rnd.Next(0, 255);
             int green = rnd.Next(0, 255);
             int blue = rnd.Next(0, 255);
@@ -35,6 +29,8 @@ namespace Lesson9_Practice1
             Graphics g = this.CreateGraphics();
 
             g.DrawEllipse(new Pen(color, 5), x, y, size, size);
+
+            g.Dispose();
         }
     }
 }
